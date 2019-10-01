@@ -1,0 +1,48 @@
+@startuml
+
+Class Edificio {
+    id : String
+    nombre : String
+}
+
+Class Puerta {
+    id : String
+    nombre : String
+}
+
+Class Piso {
+    id : String
+    nombre : String
+}
+
+Class Tablero {
+    id : String
+}
+
+Class Actividad {
+    id : String
+    descripcion : String
+    horario : Date
+}
+
+Class Nota {
+    id : String
+    descripcion : String
+    autor : Guardia
+}
+
+Class Guardia {
+    nombre : String
+    correo : String
+    identificacion : Integer
+}
+
+Edificio "1..*" - "-pisos" Piso
+Piso "*" - "-puertas" Puerta
+Edificio - "-tablero" Tablero
+Tablero "*" - "-actividades" Actividad
+Tablero "*" - "-notas" Nota
+Actividad - "-piso" Piso
+Actividad "1..*" - "-asignados" Guardia
+
+@enduml
