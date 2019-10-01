@@ -37,11 +37,6 @@ Class Guardia {
     identificacion : Integer
 }
 
-Enum Estado {
-    ABIERTA
-    CERRADA
-}
-
 Edificio "1..*" - "-pisos" Piso
 Piso "*" - "-puertas" Puerta
 Edificio - "-tablero" Tablero
@@ -49,6 +44,5 @@ Tablero "*" - "-actividades" Actividad
 Tablero "*" - "-notas" Nota
 Actividad - "-piso" Piso
 Actividad "1..*" - "-asignados" Guardia
-Puerta - "-estado" Estado
 
 @enduml
