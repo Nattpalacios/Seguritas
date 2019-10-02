@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.eci.arsw.seguritas.model.Edificio;
+import edu.eci.arsw.seguritas.model.Piso;
+import edu.eci.arsw.seguritas.model.Puerta;
 import edu.eci.arsw.seguritas.services.SeguritasServices;
 
 @RestController
 @RequestMapping(value = "/seguritas")
 public class SeguritasAPIController {
+
    @Autowired
    SeguritasServices ss = null;
    
@@ -70,7 +73,26 @@ public class SeguritasAPIController {
        } catch (Exception e) {
            return new ResponseEntity<>(e.getLocalizedMessage(),HttpStatus.NOT_FOUND);
        }
-
+   }
+   
+   @PostMapping("/edificios/{edificio}/pisos/{piso}")
+   public ResponseEntity<?> registrarPiso(@RequestBody Edificio edificio, @RequestBody Piso piso){
+       try {
+           ss.registrarPiso(edificio, piso);
+           return new ResponseEntity<>(HttpStatus.CREATED);
+       } catch (Exception e) {
+           return new ResponseEntity<>(e.getLocalizedMessage(),HttpStatus.NOT_FOUND);
+       }
+   }
+   
+   @PostMapping("/edificios/{edificio}/pisos/{piso}/puertas/{puerta}")
+   public ResponseEntity<?> registrarPuerta(@RequestBody Edificio edificio, @RequestBody Piso piso, @RequestBody Puerta puerta){
+       try {
+           ss.registrarPuerta(edificio, piso, puerta);
+           return new ResponseEntity<>(HttpStatus.CREATED);
+       } catch (Exception e) {
+           return new ResponseEntity<>(e.getLocalizedMessage(),HttpStatus.NOT_FOUND);
+       }
    }
    
 }
