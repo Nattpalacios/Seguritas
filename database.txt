@@ -1,0 +1,90 @@
+--- Creacion Tablas
+
+CREATE TABLE Edificio(
+	id VARCHAR PRIMARY KEY NOT NULL,
+	nombre VARCHAR NOT NULL
+);
+
+CREATE TABLE Piso(
+	id VARCHAR PRIMARY KEY NOT NULL,
+	nombre VARCHAR NOT NULL,
+	idEdificio VARCHAR NOT NULL
+);
+
+CREATE TABLE Puerta(
+	id VARCHAR PRIMARY KEY NOT NULL,
+	nombre VARCHAR NOT NULL,
+	estado VARCHAR NOT NULL,
+	idPiso VARCHAR NOT NULL
+);
+
+CREATE TABLE Tablero(
+	id VARCHAR PRIMARY KEY NOT NULL,
+	idEdificio VARCHAR NOT NULL
+);
+
+CREATE TABLE Actividad(
+	id VARCHAR PRIMARY KEY NOT NULL,
+	descripcion VARCHAR NOT NULL,
+	horario DATE NOT NULL,
+	idTablero VARCHAR NOT NULL
+);
+
+CREATE TABLE Guardia(
+	identificacion INTEGER PRIMARY KEY NOT NULL,
+	nombre VARCHAR NOT NULL,
+	correo VARCHAR NOT NULL
+);
+
+CREATE TABLE ActividadGuardia(
+	idActividad VARCHAR PRIMARY KEY NOT NULL,
+	idGuardia VARCHAR PRIMARY KEY NOT NULL
+);
+
+CREATE TABLE Nota(
+	id VARCHAR PRIMARY KEY NOT NULL,
+	descripcion VARCHAR NOT NULL,
+	autor VARCHAR NOT NULL
+	autor VARCHAR NOT NULL
+);
+
+
+
+
+--- Foreigns
+ALTER TABLE Piso ADD CONSTRAINT fk_pisoEdificio
+	foreign key(idEdificio)
+	references Edificio(id);
+
+ALTER TABLE Puerta ADD CONSTRAINT fk_puertaPiso
+	foreign key(idPiso)
+	references Piso(id);
+
+ALTER TABLE Tablero ADD CONSTRAINT fk_tableroEdificio
+	foreign key(idEdificio)
+	references Edificio(id);
+
+ALTER TABLE Actividad ADD CONSTRAINT fk_actividadTablero
+	FOREIGN KEY (idTablero)
+	REFERENCES Tablero (id);
+	
+ALTER TABLE Nota ADD CONSTRAINT fk_notaGuardia
+	FOREIGN KEY (autor)
+	REFERENCES Guardia (identificacion);
+
+
+--- Checks
+
+-- Tipo Correo
+ALTER TABLE Guardia ADD CONSTRAINT Correo
+		CHECK (Guardia.correo LIKE '%@%.%');
+		
+-- Tipo Estado
+ALTER TABLE Puerta ADD CONSTRAINT Estado
+		CHECK (Puerta.estado IN ('ABIERTA') OR Puerta.estado IN ('CERRADA'));
+
+-- Roles
+/*
+ALTER TABLE Usuarios ADD CONSTRAINT Rol
+		CHECK (Usuarios.rol IN());
+*/
