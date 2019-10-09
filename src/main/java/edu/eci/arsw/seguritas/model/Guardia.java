@@ -6,8 +6,10 @@ public class Guardia {
 	private String correo;
 	private int identificacion;
 	
-	public Guardia() {
-		
+	public Guardia(String nombre, String correo, int identificacion) {
+		this.nombre = nombre;
+		this.correo = correo;
+		this.identificacion = identificacion;
 	}
 
 	public String getNombre() {

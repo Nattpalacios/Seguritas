@@ -9,6 +9,12 @@ public class Puerta {
 	public Puerta() {
 		
 	}
+	
+	public Puerta(String id, String nombre) {
+		estado = estado.CERRADA;
+		this.id = id;
+		this.nombre = nombre;
+	}
 
 	public String getId() {
 		return id;
@@ -30,8 +36,12 @@ public class Puerta {
 		return estado;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void abrir() {
+		estado = estado.ABIERTA;
+	}
+	
+	public void cerrar() {
+		estado = estado.CERRADA;
 	}
 	
 }

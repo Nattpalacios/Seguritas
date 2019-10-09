@@ -6,8 +6,10 @@ public class Nota {
 	private String descripcion;
 	private Guardia autor;
 	
-	public Nota() {
-		
+	public Nota(String id, String descripcion, Guardia autor) {
+		this.id = id;
+		this.descripcion = descripcion;
+		this.autor = autor;
 	}
 
 	public String getId() {

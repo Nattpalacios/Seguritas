@@ -10,8 +10,11 @@ public class Actividad {
 	private Date horario;
 	private ArrayList<Guardia> asignados;
 	
-	public Actividad(ArrayList<Guardia> asignados) {
-		this.asignados = asignados;
+	public Actividad(String id, String descripcion, Date horario) {
+		this.id = id;
+		this.descripcion = descripcion;
+		this.horario = horario;
+		asignados = new ArrayList<Guardia>();
 	}
 
 	public String getId() {
@@ -42,10 +45,12 @@ public class Actividad {
 		return asignados;
 	}
 
-	public void setAsignados(ArrayList<Guardia> asignados) {
-		this.asignados = asignados;
+	public void agregarAsignado(Guardia asignado) {
+		asignados.add(asignado);
 	}
 	
-	
+	public void eliminarAsignado(Guardia asignado) {
+		asignados.remove(asignado);
+	}
 
 }

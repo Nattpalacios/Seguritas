@@ -16,10 +16,10 @@ public interface SeguritasPersistence {
 	
 	public Puerta obtenerPuerta(String nombreEdificio, String nombrePiso, String nombrePuerta) throws SeguritasPersistenceException;
 
-	public void registrarEdificio(Edificio edificio);
+	public void registrarEdificio(Edificio edificio) throws SeguritasPersistenceException;
 	
-	public void registrarPiso(Edificio edificio, Piso piso);
+	public void registrarPiso(String nombreEdificio, Piso piso) throws SeguritasPersistenceException;
 	
-	public void registrarPuerta(Edificio edificio, Piso piso, Puerta puerta);
+	public void registrarPuerta(String nombreEdificio, String nombrePiso, Puerta puerta) throws SeguritasPersistenceException;
 	
 }

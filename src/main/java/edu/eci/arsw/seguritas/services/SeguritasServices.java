@@ -50,15 +50,15 @@ public class SeguritasServices {
 		//return sp.obtenerPuerta(nombreEdificio, nombrePiso, nombrePuerta);
 	}
 	
-	public void registrarEdificio(Edificio edificio) {
+	public void registrarEdificio(Edificio edificio) throws SeguritasPersistenceException{
 		sp.registrarEdificio(edificio);
 	}
 	
-	public void registrarPiso(Edificio edificio, Piso piso) {
-		sp.registrarPiso(edificio, piso);
+	public void registrarPiso(String nombreEdificio, Piso piso) throws SeguritasPersistenceException{
+		sp.registrarPiso(nombreEdificio, piso);
 	}
 	
-	public void registrarPuerta(Edificio edificio, Piso piso, Puerta puerta) {
+	public void registrarPuerta(String edificio, String piso, Puerta puerta) throws SeguritasPersistenceException{
 		sp.registrarPuerta(edificio, piso, puerta);
 	}
 

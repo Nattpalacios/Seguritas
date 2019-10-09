@@ -12,6 +12,17 @@ public class Edificio {
 	public Edificio() {
 		
 	}
+	
+	public Edificio(String id, String nombre, Tablero tablero, ArrayList<Piso> pisos) {
+		this.id = id;
+		this.nombre = nombre;
+		this.tablero = tablero;
+		if (pisos == null) {
+			this.pisos = new ArrayList<>();
+		}else {
+			this.pisos = pisos;
+		}
+	}
 
 	public String getId() {
 		return id;
@@ -41,10 +52,12 @@ public class Edificio {
 		return pisos;
 	}
 
-	public void setPisos(ArrayList<Piso> pisos) {
-		this.pisos = pisos;
+	public void agregarPiso(Piso piso) {
+		pisos.add(piso);
 	}
 	
+	public void quitarPiso(Piso piso) {
+		pisos.remove(piso);
+	}
 	
-
 }

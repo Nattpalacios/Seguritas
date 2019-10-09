@@ -11,6 +11,23 @@ public class Piso {
 	public Piso() {
 		
 	}
+	
+	public Piso(String id, String nombre, ArrayList<Puerta> puertas) {
+		this.id = id;
+		this.nombre = nombre;
+		this.puertas = puertas;
+		if(puertas == null) {
+			this.puertas = new ArrayList<>();
+		}else {
+			this.puertas = puertas;
+		}
+	}
+	
+	public Piso(String id, String nombre) {
+		this.id = id;
+		this.nombre = nombre;
+		puertas = new ArrayList<>();
+	}
 
 	public String getId() {
 		return id;
@@ -32,8 +49,12 @@ public class Piso {
 		return puertas;
 	}
 
-	public void setPuertas(ArrayList<Puerta> puertas) {
-		this.puertas = puertas;
+	public void agregarPuerta(Puerta puerta) {
+		puertas.add(puerta);
+	}
+	
+	public void quitarPuerta(Puerta puerta) {
+		puertas.remove(puerta);
 	}
 
 }

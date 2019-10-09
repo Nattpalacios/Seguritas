@@ -11,6 +11,12 @@ public class Tablero {
 	public Tablero() {
 		
 	}
+	
+	public Tablero(String id) {
+		this.id = id;
+		actividades = new ArrayList<Actividad>();
+		notas = new ArrayList<Nota>();
+	}
 
 	public String getId() {
 		return id;
@@ -24,16 +30,24 @@ public class Tablero {
 		return actividades;
 	}
 
-	public void setActividades(ArrayList<Actividad> actividades) {
-		this.actividades = actividades;
+	public void agregarActividad(Actividad actividad) {
+		actividades.add(actividad);
+	}
+	
+	public void eliminarActividad(Actividad actividad) {
+		actividades.remove(actividad);
 	}
 
 	public ArrayList<Nota> getNotas() {
 		return notas;
 	}
 
-	public void setNotas(ArrayList<Nota> notas) {
-		this.notas = notas;
+	public void agregarNota(Nota nota) {
+		notas.add(nota);
+	}
+	
+	public void eliminarNota(Nota nota) {
+		notas.remove(nota);
 	}
 
 }

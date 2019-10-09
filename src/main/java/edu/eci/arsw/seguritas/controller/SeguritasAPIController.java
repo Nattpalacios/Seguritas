@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.eci.arsw.seguritas.model.Edificio;
@@ -19,7 +20,7 @@ import edu.eci.arsw.seguritas.model.Puerta;
 import edu.eci.arsw.seguritas.services.SeguritasServices;
 
 @RestController
-@RequestMapping(value = "/seguritas")
+@RequestMapping("/seguritas")
 public class SeguritasAPIController {
 
    @Autowired
@@ -65,7 +66,7 @@ public class SeguritasAPIController {
        }        
    }
    
-   @PostMapping("/edificios/{edificio}")
+   @PostMapping("/edificios")
    public ResponseEntity<?> registrarEdificio(@RequestBody Edificio edificio){
        try {
            ss.registrarEdificio(edificio);
@@ -75,20 +76,20 @@ public class SeguritasAPIController {
        }
    }
    
-   @PostMapping("/edificios/{edificio}/pisos/{piso}")
-   public ResponseEntity<?> registrarPiso(@RequestBody Edificio edificio, @RequestBody Piso piso){
+   @PostMapping("/edificios/{edificio}/pisos")
+   public ResponseEntity<?> registrarPiso(@PathVariable ("edificio") String nombreEdificio, @RequestBody Piso piso){
        try {
-           ss.registrarPiso(edificio, piso);
+           ss.registrarPiso(nombreEdificio, piso);
            return new ResponseEntity<>(HttpStatus.CREATED);
        } catch (Exception e) {
            return new ResponseEntity<>(e.getLocalizedMessage(),HttpStatus.NOT_FOUND);
        }
    }
    
-   @PostMapping("/edificios/{edificio}/pisos/{piso}/puertas/{puerta}")
-   public ResponseEntity<?> registrarPuerta(@RequestBody Edificio edificio, @RequestBody Piso piso, @RequestBody Puerta puerta){
+   @PostMapping("/edificios/{edificio}/pisos/{piso}/puertas")
+   public ResponseEntity<?> registrarPuerta(@PathVariable ("edificio") String nombreEdificio, @PathVariable ("piso") String nombrePiso, @RequestBody Puerta puerta){
        try {
-           ss.registrarPuerta(edificio, piso, puerta);
+           ss.registrarPuerta(nombreEdificio, nombrePiso, puerta);
            return new ResponseEntity<>(HttpStatus.CREATED);
        } catch (Exception e) {
            return new ResponseEntity<>(e.getLocalizedMessage(),HttpStatus.NOT_FOUND);
