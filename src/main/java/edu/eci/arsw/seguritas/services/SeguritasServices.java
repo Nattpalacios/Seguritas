@@ -16,8 +16,13 @@ public class SeguritasServices {
 	@Autowired
 	SeguritasPersistence sp;
 	
-	public ArrayList<Edificio> obtenerEdificios() {
-		return sp.obtenerEdificios();
+	public ArrayList<String> obtenerEdificios() {
+		ArrayList<Edificio> edific = sp.obtenerEdificios();
+		ArrayList<String> nombresEdif = new ArrayList<>();
+		for (Edificio e : edific) {
+			nombresEdif.add(e.getNombre());
+		}
+		return nombresEdif;
 	}
 	
 	public Edificio obtenerEdificio(String nombreEdificio) throws SeguritasPersistenceException {
