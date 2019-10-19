@@ -10,61 +10,26 @@ import edu.eci.arsw.seguritas.model.Puerta;
 import edu.eci.arsw.seguritas.persistence.SeguritasPersistence;
 import edu.eci.arsw.seguritas.persistence.SeguritasPersistenceException;
 
-@Service
-public class SeguritasServices {
+public interface SeguritasServices {
 	
-	@Autowired
-	SeguritasPersistence sp;
+	public ArrayList<String> obtenerEdificios();
 	
-	public ArrayList<String> obtenerEdificios() {
-		ArrayList<Edificio> edific = sp.obtenerEdificios();
-		ArrayList<String> nombresEdif = new ArrayList<>();
-		for (Edificio e : edific) {
-			nombresEdif.add(e.getNombre());
-		}
-		return nombresEdif;
-	}
+	public Edificio obtenerEdificio(String nombreEdificio) throws SeguritasPersistenceException;
 	
-	public Edificio obtenerEdificio(String nombreEdificio) throws SeguritasPersistenceException {
-		Edificio e = sp.obtenerEdificio(nombreEdificio);
-		if (e != null) {
-			return e;
-		}else {
-			throw new SeguritasPersistenceException("No se encontró el edificio.");
-		}
-		//return sp.obtenerEdificio(nombreEdificio);
-	}
+	public Piso obtenerPiso(String nombreEdificio, String nombrePiso) throws SeguritasPersistenceException;
 	
-	public Piso obtenerPiso(String nombreEdificio, String nombrePiso) throws SeguritasPersistenceException {
-		Piso p = sp.obtenerPiso(nombreEdificio, nombrePiso);
-		if(p != null) {
-			return p;
-		}else {
-			throw new SeguritasPersistenceException("No se encontró el piso.");
-		}
-		//return sp.obtenerPiso(nombreEdificio, nombrePiso);
-	}
+	public Puerta obtenerPuerta(String nombreEdificio, String nombrePiso, String nombrePuerta) throws SeguritasPersistenceException;
 	
-	public Puerta obtenerPuerta(String nombreEdificio, String nombrePiso, String nombrePuerta) throws SeguritasPersistenceException {
-		Puerta p = sp.obtenerPuerta(nombreEdificio, nombrePiso, nombrePuerta);
-		if(p != null) {
-			return p;
-		}else {
-			throw new SeguritasPersistenceException("No se encontró la puerta.");
-		}
-		//return sp.obtenerPuerta(nombreEdificio, nombrePiso, nombrePuerta);
-	}
+	public void registrarEdificio(Edificio edificio) throws SeguritasPersistenceException;
 	
-	public void registrarEdificio(Edificio edificio) throws SeguritasPersistenceException{
-		sp.registrarEdificio(edificio);
-	}
+	public void registrarPiso(String nombreEdificio, Piso piso) throws SeguritasPersistenceException;
 	
-	public void registrarPiso(String nombreEdificio, Piso piso) throws SeguritasPersistenceException{
-		sp.registrarPiso(nombreEdificio, piso);
-	}
+	public void registrarPuerta(String edificio, String piso, Puerta puerta) throws SeguritasPersistenceException;
 	
-	public void registrarPuerta(String edificio, String piso, Puerta puerta) throws SeguritasPersistenceException{
-		sp.registrarPuerta(edificio, piso, puerta);
-	}
+	public void modificarNombreEdificio(String nombreActual, Edificio nuevo) throws SeguritasPersistenceException;
+	
+	public void removerPiso(String edificio, Edificio nuevoEdificio) throws SeguritasPersistenceException;
+	
+	public void removerEdificio(String edificio) throws SeguritasPersistenceException;
 
 }

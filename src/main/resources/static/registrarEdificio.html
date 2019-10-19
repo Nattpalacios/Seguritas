@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Seguritas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/registroEdificio.js"></script>
+    
+  </head>
+  <body>
+    <div class="page-header">
+      <h1>Registro de Edificios</h1>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nombre</label>
+        <input type="nombre" class="form-control" id="inputEdificio"></br>
+      </div></br>
+      <div class="form-group row">
+        <ul style="list-style-type:none;" id="edificio">
+
+        </ul>
+      </div>
+      <div class="form-group row">
+        <button type="button" onclick="registro.agregarPiso()" class="btn btn-default">+</button>
+        <label class="col-sm-2 col-form-label">Agregar un nuevo piso</label></br>
+        <button type="button" onclick="registro.quitarPiso()" class="btn btn-default">-</button>
+        <label class="col-sm-2 col-form-label">Eliminar un piso</label></br>
+        <label class="col-sm-2 col-form-label">Número de pisos:</label><label id="numPisos" class="col-sm-2 col-form-label">0</label></br>
+        <button type="button" onclick="registro.guardarEdificio();window.location='http://localhost:8080/mostrarEdificios.html'" class="btn btn-default">Guardar edificio</button>
+      </div></br>
+    </div>
+  </body>
+</html>

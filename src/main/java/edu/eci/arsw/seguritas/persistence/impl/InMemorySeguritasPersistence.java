@@ -113,4 +113,48 @@ public class InMemorySeguritasPersistence implements SeguritasPersistence {
 		}
 	}
 
+	@Override
+	public void modificarNombreEdificio(String nombreActual, Edificio nuevo) throws SeguritasPersistenceException {
+		Edificio e = obtenerEdificio(nombreActual);
+		if (e != null) {
+			String nuevoNombre = nuevo.getNombre();
+			e.setNombre(nuevoNombre);
+		}else {
+			throw new SeguritasPersistenceException("El edificio no existe.");
+		}
+	}
+
+	@Override
+	public void removerPiso(String edificio, Edificio nuevoEdificio) throws SeguritasPersistenceException {
+		Edificio e = obtenerEdificio(edificio);
+		if (e != null) {
+			ArrayList<Piso> pisos1 = e.getPisos();
+			ArrayList<Piso> pisos2 = nuevoEdificio.getPisos();
+			boolean flag = false;
+			for(int i = 0; i < pisos2.size(); i++) {
+				if(!pisos1.get(i).getNombre().equals(pisos2.get(i).getNombre())) {
+					e.quitarPiso(pisos1.get(i));
+					flag = true;
+					break;
+				}
+			}if (!flag) {
+				e.quitarPiso(pisos1.get(pisos1.size()-1));
+			}
+		}else {
+			throw new SeguritasPersistenceException("El edificio no existe.");
+		}
+	}
+
+	@Override
+	public void removerEdificio(String edificio) throws SeguritasPersistenceException {
+		Edificio e = obtenerEdificio(edificio);
+		if (e != null) {
+			edificios.remove(edificio);
+		}else {
+			throw new SeguritasPersistenceException("El edificio que desea eliminar no existe.");
+		}
+	}
+	
+	
+
 }

@@ -22,4 +22,10 @@ public interface SeguritasPersistence {
 	
 	public void registrarPuerta(String nombreEdificio, String nombrePiso, Puerta puerta) throws SeguritasPersistenceException;
 	
+	public void modificarNombreEdificio(String nombreActual, Edificio nuevo) throws SeguritasPersistenceException;
+	
+	public void removerPiso(String edificio, Edificio nuevoEdificio) throws SeguritasPersistenceException;
+	
+	public void removerEdificio(String edificio) throws SeguritasPersistenceException;
+	
 }
