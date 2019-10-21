@@ -26,12 +26,29 @@ var registro = (function () {
     }
 
     var guardarEdificio = function(){
-        
-    }
+        var nombreEdificio = document.getElementById("inputEdificio").value;
+        var pisos = new Array();
+        var piso = new Object();
+        for(var i = 0; i < numPisos; i++){
+            var piso = new Object();
+            piso.id = nombreEdificio+" piso "+i;
+            piso.nombre = "Piso "+i;
+            piso.puertas = new Array();
+            pisos.push(piso);
+        }
+
+        var edificio = new Object();
+        edificio.id = "E"+nombreEdificio;
+        edificio.nombre = nombreEdificio;
+        edificio.tablero = null;
+        edificio.pisos = pisos;
+        var edificiojson = JSON.stringify(edificio);
+        apiclient.agregarEdificio(edificiojson);
+    }    
   
     return {
       agregarPiso: agregarPiso,
       quitarPiso: quitarPiso,
-      guardarEdificio: guardarEdificio
+      guardarEdificio: guardarEdificio      
     };
   })();
