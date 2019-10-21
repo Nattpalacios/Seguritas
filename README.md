@@ -36,3 +36,9 @@ Natalia Faride Palacios Rozo
 ![](https://raw.githubusercontent.com/Nattpalacios/Seguritas/master/Imagenes/diagramaComponentes.PNG)
 
 ## Manual de uso
+
+
+
+
+
+hangouts: https://hangouts.google.com/call/HKQnem28aHrvFSs9ze-iAEEE
