@@ -25,10 +25,14 @@ Natalia Faride Palacios Rozo
 
 ### Diagrama de despliegue
 
+![](https://raw.githubusercontent.com/Nattpalacios/Seguritas/master/Imagenes/diagramaDespliegue.PNG)
+
 ### Diagrama de casos de uso
 
 ![](https://raw.githubusercontent.com/Nattpalacios/Seguritas/master/Imagenes/casosDeUso.PNG)
 
 ### Diagrama de componentes
+
+![](https://raw.githubusercontent.com/Nattpalacios/Seguritas/master/Imagenes/diagramaComponentes.PNG)
 
 ## Manual de uso
