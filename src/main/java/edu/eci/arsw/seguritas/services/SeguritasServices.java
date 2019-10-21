@@ -10,6 +10,7 @@ import edu.eci.arsw.seguritas.model.Puerta;
 import edu.eci.arsw.seguritas.persistence.SeguritasPersistence;
 import edu.eci.arsw.seguritas.persistence.SeguritasPersistenceException;
 
+@Service
 public interface SeguritasServices {
 	
 	public ArrayList<String> obtenerEdificios();

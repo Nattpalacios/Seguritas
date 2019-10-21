@@ -2,11 +2,14 @@ package edu.eci.arsw.seguritas.persistence;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import edu.eci.arsw.seguritas.model.Edificio;
 import edu.eci.arsw.seguritas.model.Piso;
 import edu.eci.arsw.seguritas.model.Puerta;
 
-public interface SeguritasPersistence {
+@Service
+public interface SeguritasPersistence{
 	
 	public ArrayList<Edificio> obtenerEdificios();
 	

@@ -2,7 +2,8 @@ package edu.eci.arsw.seguritas.services.impl;
 
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import edu.eci.arsw.seguritas.model.Edificio;
 import edu.eci.arsw.seguritas.model.Piso;
 import edu.eci.arsw.seguritas.model.Puerta;
@@ -10,7 +11,7 @@ import edu.eci.arsw.seguritas.persistence.SeguritasPersistence;
 import edu.eci.arsw.seguritas.persistence.SeguritasPersistenceException;
 import edu.eci.arsw.seguritas.services.SeguritasServices;
 
-@Service
+@Component
 public class SeguritasServicesImpl implements SeguritasServices{
 	
 	@Autowired

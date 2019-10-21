@@ -26,8 +26,8 @@ node SeguritasDyno{
 database PostgreSQL{
   }
   
-  Backend - PostgreSQL : jdba
-  Backend - Frontend
+  Backend - PostgreSQL : SprintDataJPA
+  SeguritasBackend - Frontend : jQuery
   Frontend - WebBrowser : <<Download>> HTTP
     
 @enduml
