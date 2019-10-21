@@ -1,0 +1,33 @@
+
+
+@startuml
+
+node WebBrowser{
+  node JSProcessor{
+    node SeguritasFrontend
+    }
+  }
+
+node SeguritasDyno{
+  node Frontend{
+    node JS
+    node CSS
+    node HTML
+    }
+  node Backend{
+    node JVM{
+      node SpringbootFramework{
+        node SeguritasBackend
+        }
+      }
+    
+    }
+
+database PostgreSQL{
+  }
+  
+  Backend - PostgreSQL : jdba
+  Backend - Frontend
+  Frontend - WebBrowser : <<Download>> HTTP
+    
+@enduml

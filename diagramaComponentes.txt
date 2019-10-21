@@ -1,0 +1,39 @@
+
+
+@startuml
+
+node Cliente{
+  }
+
+node Frontend{
+  node Login
+  node Elementos{
+    node edificios
+    node Tableros
+    }
+  }
+
+node Backend{
+  node Edificios {
+    node tableros
+    node Pisos {
+      node Puertas
+      }
+    }
+  }
+
+database PostgreSQL{
+  }
+
+  Cliente -( UserInterface
+  UserInterface - Frontend
+  Frontend -( APIEdificios
+  Frontend -( APIPisos
+  Frontend -( APIPuertas
+  Edificios - APIEdificios
+  Pisos - APIPisos
+  Puertas - APIPuertas
+  Backend -( Driver
+  Driver - PostgreSQL
+    
+@enduml
