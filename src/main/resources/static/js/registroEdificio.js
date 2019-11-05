@@ -1,5 +1,6 @@
 var registro = (function () {
     var numPisos;
+
     var agregarPiso = function(){
         var pisos = document.getElementById("numPisos");
         numPisos = Number(pisos.innerHTML);
@@ -44,11 +45,11 @@ var registro = (function () {
         edificio.pisos = pisos;
         var edificiojson = JSON.stringify(edificio);
         apiclient.agregarEdificio(edificiojson);
-    }    
+    }
   
     return {
       agregarPiso: agregarPiso,
       quitarPiso: quitarPiso,
-      guardarEdificio: guardarEdificio      
+      guardarEdificio: guardarEdificio
     };
   })();

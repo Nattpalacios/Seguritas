@@ -6,6 +6,7 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="js/registroEdificio.js"></script>
+    <script src="js/apiclient.js"></script>
     
   </head>
   <body>
@@ -26,7 +27,7 @@
         <button type="button" onclick="registro.quitarPiso()" class="btn btn-default">-</button>
         <label class="col-sm-2 col-form-label">Eliminar un piso</label></br>
         <label class="col-sm-2 col-form-label">Número de pisos:</label><label id="numPisos" class="col-sm-2 col-form-label">0</label></br>
-        <button type="button" onclick="registro.guardarEdificio()" class="btn btn-default">Guardar edificio</button>
+        <button type="button" onclick="window.location='http://localhost:8080/mostrarEdificios.html'" class="btn btn-default">Guardar edificio</button>
       </div></br>
     </div>
   </body>
