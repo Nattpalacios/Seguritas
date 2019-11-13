@@ -11,26 +11,23 @@ var visualizar = (function () {
         mostrar.appendChild(boton);
     }
 
-    var generarTabla = function() {
-        alert("Hola");
-        /*var body = document.getElementsByTagName("body")[0];
-        var tabla   = document.createElement("table");
-        var tblBody = document.createElement("tbody");
-        
-        for (var i = 0; i < 2; i++) {
-            var hilera = document.createElement("tr");
-        
-            for (var j = 0; j < 2; j++) {
-                var celda = document.createElement("td");
-                var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
-                celda.appendChild(textoCelda);
-                hilera.appendChild(celda);
-            }
-            tblBody.appendChild(hilera);
-        }
-        tabla.appendChild(tblBody);
-        body.appendChild(tabla);
-        tabla.setAttribute("border", "2");*/
+    var generarTabla = function(lisEdificios) {
+        console.log(lisEdificios);
+        /*for(var i = 0; i < edificios.length; i++){
+            var edificio = edificios[i];
+            var nombre = edificio.nombre;
+            var numPisos = edificio.numPisos;
+            var boton = documento.createElement("button");
+            var lista = document.createElement("ul");
+            var listaN = document.createElement("li");
+            var listaP = document.createElement("li");
+            var listaB = document.createElement("li");
+            listaN.innerHTML = nombre;
+            listaP.innerHTML = numPisos;
+            listaB.innerHTML = boton;
+            lista.appendChild(listaN);
+            $('#edificios').appendChild(lista);
+        }*/
     }
   
     return {
@@ -38,11 +35,10 @@ var visualizar = (function () {
         $('#edificios').empty();
         var nombre = $('#inputEdificio').val();
         if(nombre == ""){
-            this.generarTabla();
+            apiclient.traerEdificios(generarTabla);
         }else{
             apiclient.traerEdificioPorNombre(nombre,mostrEdificio);
         }
-      },
-      generarTabla: generarTabla
+      }
     };
   })();
