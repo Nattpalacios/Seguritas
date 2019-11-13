@@ -1,8 +1,8 @@
 apiclient = (function(){
-	/*var agregarEdificio = function(edificio){
+	var agregarEdificio = function(edificio){
 		$.post( "/edificios/", edificio,function( data ) {
 		  });
-	}*/
+	}
 	var traerEdificios = function(callback){
 		$.get( "/seguritas/edificios/", function( data ) {
 			callback(data);
@@ -15,7 +15,7 @@ apiclient = (function(){
 	}
 	
     return {
-		//agregarEdificio: agregarEdificio,
+		agregarEdificio: agregarEdificio,
 		traerEdificios: traerEdificios,
 		traerEdificioPorNombre: traerEdificioPorNombre 
 	}
