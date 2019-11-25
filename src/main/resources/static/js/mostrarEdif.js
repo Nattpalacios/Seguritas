@@ -1,5 +1,4 @@
 var visualizar = (function () {
-    var edificioTabla;
     
     var mostrEdificio = function(edif){
         var edificio = edif;
@@ -23,11 +22,12 @@ var visualizar = (function () {
         console.log(lisEdificios);
         for(var i = 0; i < lisEdificios.length; i++){
             var nombreEd = lisEdificios[i];
-            apiclient.traerEdificioPorNombre2(nombreEd);
-            console.log(edificioTabla);
-            var pisos = edificioTabla.pisos;
-            console.log(pisos);
-            var numP = pisos.length;
+            var edif = apiclient.traerEdificioPorNombre2(nombreEd);
+            console.log("Aqui deberia ir la info");
+            console.log(edif);
+            var pisosE = edif.pisos;
+            //console.log(pisosE);
+            var numP = pisosE.length;
             var boton = document.createElement("button");
             var lista = document.createElement("ul");
             var listaN = document.createElement("li");
@@ -43,10 +43,6 @@ var visualizar = (function () {
             edifcs.appendChild(lista);
         }
     }
-
-    var guardarEdificioParaTabla = function(edificio){
-        edificioTabla = edificio;
-    }
   
     return {
       mostrarEdificio: function(){
@@ -57,7 +53,6 @@ var visualizar = (function () {
         }else{
             apiclient.traerEdificioPorNombre(nombre,mostrEdificio);
         }
-      },
-      guardarEdificioParaTabla: guardarEdificioParaTabla
+      }
     };
   })();
