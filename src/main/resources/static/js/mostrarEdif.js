@@ -24,6 +24,7 @@ var visualizar = (function () {
             var nombreEd = lisEdificios[i];
             var edif = apiclient.traerEdificioPorNombre2(nombreEd);
             console.log("Aqui deberia ir la info");
+            alert(edif);
             console.log(edif);
             var pisosE = edif.pisos;
             //console.log(pisosE);
