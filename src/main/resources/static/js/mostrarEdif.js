@@ -31,7 +31,7 @@ var visualizar = (function () {
             //var listaB = document.createElement("li");
             listaN.innerHTML = nombreEd;
             listaP.innerHTML = numP;
-            boton.type = "button";
+            //boton.type = "button";
             //listaB.innerHTML = boton;
             lista.appendChild(listaN);
             lista.appendChild(listaP);
