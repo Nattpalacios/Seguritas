@@ -17,13 +17,14 @@ public class SeguritasServicesImpl implements SeguritasServices{
 	@Autowired
 	SeguritasPersistence sp;
 	
-	public ArrayList<String> obtenerEdificios() {
+	public ArrayList<Edificio> obtenerEdificios() {
 		ArrayList<Edificio> edific = sp.obtenerEdificios();
-		ArrayList<String> nombresEdif = new ArrayList<>();
+		/*ArrayList<String> nombresEdif = new ArrayList<>();
 		for (Edificio e : edific) {
 			nombresEdif.add(e.getNombre());
 		}
-		return nombresEdif;
+		return nombresEdif;*/
+		return edific;
 	}
 	
 	public Edificio obtenerEdificio(String nombreEdificio) throws SeguritasPersistenceException {

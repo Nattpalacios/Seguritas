@@ -13,28 +13,11 @@ apiclient = (function(){
 			callback(data);
 		  });
 	}
-	var traerEdificioPorNombre2 = function(name){
-		//var info;
-		$.get( "/seguritas/edificios/"+name, function( data ) {
-			//info = data;
-			var retorno = guardarEdificioParaTabla(data);
-			return retorno;
-		  });
-		//console.log("Aqui va la info");
-		//console.log(info);
-		//return info;
-	}
-
-	var guardarEdificioParaTabla = function(edificio){
-        console.log("Aqui entre");
-		var edificioTabla = edificio;
-		return edificioTabla;
-    }
+	
 	
     return {
 		agregarEdificio: agregarEdificio,
 		traerEdificios: traerEdificios,
-		traerEdificioPorNombre: traerEdificioPorNombre,
-		traerEdificioPorNombre2: traerEdificioPorNombre2
+		traerEdificioPorNombre: traerEdificioPorNombre
 	}
 })();

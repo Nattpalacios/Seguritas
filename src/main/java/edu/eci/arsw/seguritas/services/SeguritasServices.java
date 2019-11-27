@@ -13,7 +13,7 @@ import edu.eci.arsw.seguritas.persistence.SeguritasPersistenceException;
 @Service
 public interface SeguritasServices {
 	
-	public ArrayList<String> obtenerEdificios();
+	public ArrayList<Edificio> obtenerEdificios();
 	
 	public Edificio obtenerEdificio(String nombreEdificio) throws SeguritasPersistenceException;
 	

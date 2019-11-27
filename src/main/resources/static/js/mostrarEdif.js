@@ -17,29 +17,26 @@ var visualizar = (function () {
     }
 
     var generarTabla = function(listEdificios) {
-        console.log(listEdificios);
-        var lisEdificios = listEdificios; 
-        console.log(lisEdificios);
+        var lisEdificios = listEdificios;
         for(var i = 0; i < lisEdificios.length; i++){
-            var nombreEd = lisEdificios[i];
-            var edif = apiclient.traerEdificioPorNombre2(nombreEd);
-            console.log("Aqui deberia ir la info");
-            alert(edif);
-            console.log(edif);
+            var edif = lisEdificios[i];
+            //console.log(edif);
+            var nombreEd = edif.nombre;
             var pisosE = edif.pisos;
-            //console.log(pisosE);
             var numP = pisosE.length;
             var boton = document.createElement("button");
             var lista = document.createElement("ul");
             var listaN = document.createElement("li");
             var listaP = document.createElement("li");
-            var listaB = document.createElement("li");
+            //var listaB = document.createElement("li");
             listaN.innerHTML = nombreEd;
             listaP.innerHTML = numP;
-            listaB.innerHTML = boton;
+            boton.type = "button";
+            //listaB.innerHTML = boton;
             lista.appendChild(listaN);
             lista.appendChild(listaP);
-            lista.appendChild(listaB);
+            lista.appendChild(boton);
+            //lista.appendChild(listaB);
             var edifcs = document.getElementById("edificios");
             edifcs.appendChild(lista);
         }
