@@ -27,7 +27,9 @@ public class InMemorySeguritasPersistence implements SeguritasPersistence {
 		pisos1.add(p);
 		ArrayList<Piso> pisos2 = new ArrayList<>();
 		Piso p2 = new Piso("p2", "Piso 2");
+		Piso p3 = new Piso("p3", "Piso 3");
 		pisos2.add(p2);
+		pisos2.add(p3);
 		Edificio e1 = new Edificio("e1", "Fundadores", t1, pisos1);
 		Tablero t2 = new Tablero("t2");
 		Edificio e2 = new Edificio("e2", "Administrativo", t2, pisos2);
