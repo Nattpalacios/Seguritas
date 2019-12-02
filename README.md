@@ -43,7 +43,3 @@ Natalia Faride Palacios Rozo
 ## Manual de uso
 
 
-
-
-
-hangouts: https://hangouts.google.com/call/HKQnem28aHrvFSs9ze-iAEEE
